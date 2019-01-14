@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "411236758075",
+    "firebase_url": "https://newagent-f89a2.firebaseio.com",
+    "project_id": "newagent-f89a2",
+    "storage_bucket": "newagent-f89a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411236758075:android:df22ebedafef81e5",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411236758075-nssinvm3palrn5l4ss6egd350lghaasi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA631z_uG9b3ypoAdU-u_gJjus3GGgU_t8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
