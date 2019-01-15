@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
  @override
  Widget build(BuildContext context) {
    return Scaffold(
-     appBar: AppBar(title: Text('Baby Name Votes')),
+     appBar: AppBar(title: Text('Skałki')),
      body: _buildBody(context),
    );
  }
@@ -107,16 +107,48 @@ class EditRecord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Screen"),
+        title: Text("Skałka"),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text(record.name),
-        ),
-      ),
+        child: Column( 
+          children: <Widget>[
+            RecordPage(record: this.record),
+            RaisedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Save")
+            )
+          ]
+        )
+      )
     );
+  }
+}
+class RecordState extends State<RecordPage> {
+  final Record record;
+  RecordState({@required this.record});
+  @override
+  Widget build(BuildContext context){
+    return Column(
+      children: <Widget>[
+        Text("Nazwa"),
+        TextField(
+          controller: TextEditingController(text: this.record.name),         
+        ),
+        Text("Adres"),
+        TextField(
+          controller: TextEditingController(text: this.record.address),         
+        )
+      ],
+    );
+  }
+}
+class RecordPage extends StatefulWidget {
+  final Record record;
+  RecordPage({Key key, @required this.record}) : super(key: key);
+  @override
+  RecordState createState() {
+      return RecordState(record: this.record);
   }
 }
