@@ -70,15 +70,21 @@ Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
          title: Text(record.name),
          trailing: Text(record.address.toString()),
          onTap: () {  
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => EditRecord(record: record)),
-          );
+           _navigate(record);
          }
        ),
      ),
    );
  }
+
+ _navigate(Record record) async {
+    var newRecord = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => EditRecord(record: record)),
+    );
+    record.reference.updateData(newRecord);
+ }
+
 }
 
 class Record {
@@ -115,7 +121,7 @@ class EditRecord extends StatelessWidget {
             RecordPage(record: this.record),
             RaisedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pop(context, {name:"dupa",adres:"dupaa"});
               },
               child: Text("Save")
             )
@@ -127,6 +133,7 @@ class EditRecord extends StatelessWidget {
 }
 class RecordState extends State<RecordPage> {
   final Record record;
+
   RecordState({@required this.record});
   @override
   Widget build(BuildContext context){
@@ -135,6 +142,7 @@ class RecordState extends State<RecordPage> {
         Text("Nazwa"),
         TextField(
           controller: TextEditingController(text: this.record.name),         
+          
         ),
         Text("Adres"),
         TextField(
